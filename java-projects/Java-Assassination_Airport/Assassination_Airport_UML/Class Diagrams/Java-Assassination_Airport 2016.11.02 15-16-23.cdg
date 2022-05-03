@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Java-Assassination_Airport">
+  <ClassDiagramComponents>
+    <Class name="Aeroporto" package="assassination_airport" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="public"/>
+        <Field name="voli" type="ArrayList&lt;Volo&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addVolo" returnType="void" visibility="public">
+          <Argument type="Volo" name="nuovo"/>
+        </Method>
+        <Method name="checkVolo" returnType="boolean" visibility="private">
+          <Argument type="Volo" name="nuovo"/>
+        </Method>
+        <Method name="printVoli" returnType="void" visibility="public"/>
+        <Method name="cercaPerCodice" returnType="ArrayList" visibility="public">
+          <Argument type="String" name="codice"/>
+        </Method>
+        <Method name="cercaPerDestinazione" returnType="ArrayList" visibility="public">
+          <Argument type="String" name="codice"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Assassination_Airport" package="assassination_airport" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Cerca" package="assassination_airport" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="codice" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Map&lt;String, Nazione&gt;" name="nazioni"/>
+          <Argument type="String" name="codice"/>
+        </Method>
+        <Method name="destinazione" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Map&lt;String, Nazione&gt;" name="nazioni"/>
+          <Argument type="String" name="destinazione"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Database" package="assassination_airport" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="nazioni" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="areoporto_ITA" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="compagnie_ITA" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="areoporto_FIN" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="compagnie_FIN" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="areoporto_GER" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="compagnie_GER" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="areoporto_ICE" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="compagnie_ICE" type="String[]" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="GUI" package="assassination_airport" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="top_insert" type="JPanel" visibility="package"/>
+        <Field name="insert" type="JPanel" visibility="package"/>
+        <Field name="search" type="JPanel" visibility="package"/>
+        <Field name="panel_search_codice" type="JPanel" visibility="package"/>
+        <Field name="panel_search_destinazione" type="JPanel" visibility="package"/>
+        <Field name="lab_nazioni" type="JLabel" visibility="package"/>
+        <Field name="lab_aeroporto" type="JLabel" visibility="package"/>
+        <Field name="lab_compagnia" type="JLabel" visibility="package"/>
+        <Field name="lab_destinazione" type="JLabel" visibility="package"/>
+        <Field name="lab_data" type="JLabel" visibility="package"/>
+        <Field name="lab_codice" type="JLabel" visibility="package"/>
+        <Field name="lab_search_codice" type="JLabel" visibility="package"/>
+        <Field name="lab_search_destinazione" type="JLabel" visibility="package"/>
+        <Field name="nazioni" type="JComboBox" visibility="package"/>
+        <Field name="aeroporto" type="JComboBox" visibility="package"/>
+        <Field name="compagnia" type="JComboBox" visibility="package"/>
+        <Field name="destinazione" type="JTextField" visibility="package"/>
+        <Field name="data" type="JTextField" visibility="package"/>
+        <Field name="codice" type="JTextField" visibility="package"/>
+        <Field name="search_codice" type="JTextField" visibility="package"/>
+        <Field name="search_destinazione" type="JTextField" visibility="package"/>
+        <Field name="aggiungi" type="JButton" visibility="package"/>
+        <Field name="btn_search_codice" type="JButton" visibility="package"/>
+        <Field name="btn_search_destinazione" type="JButton" visibility="package"/>
+        <Field name="assoc_nazioni" type="Map&lt;String, Nazione&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Map" name="assoc_nazioni"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="addActionListener" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Nazione" package="assassination_airport" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="public"/>
+        <Field name="aeroporti" type="Map&lt;String, Aeroporto&gt;" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="print" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Volo" package="assassination_airport" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="codice_volo" type="String" visibility="public"/>
+        <Field name="compagnia" type="String" visibility="public"/>
+        <Field name="destinazione" type="String" visibility="public"/>
+        <Field name="data" type="String" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="codice_volo"/>
+          <Argument type="String" name="compagnia"/>
+          <Argument type="String" name="destinazione"/>
+          <Argument type="String" name="data"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="print" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="voli" source="assassination_airport.Aeroporto" target="assassination_airport.Volo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Volo&gt;"/>
+    <UseRelation source="assassination_airport.Cerca" target="assassination_airport.Nazione" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="assassination_airport.Aeroporto" target="assassination_airport.Volo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="assoc_nazioni" source="assassination_airport.GUI" target="assassination_airport.Nazione" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, Nazione&gt;"/>
+    <HasRelation name="aeroporti" source="assassination_airport.Nazione" target="assassination_airport.Aeroporto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;String, Aeroporto&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

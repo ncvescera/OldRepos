@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Punto">
+  <ClassDiagramComponents>
+    <Class name="Punto" package="" visibility="public" xPosition="125.0" yPosition="90.0">
+      <Fields>
+        <Field name="x" type="float" visibility="private"/>
+        <Field name="y" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="flaot" name="x"/>
+          <Argument type="float" name="y"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getX" returnType="float" visibility="public"/>
+        <Method name="getY" returnType="float" visibility="public"/>
+        <Method name="spostaPunto" returnType="void" visibility="public">
+          <Argument type="float" name="x"/>
+          <Argument type="float" name="y"/>
+        </Method>
+        <Method name="distanzaOrigine" returnType="float" visibility="public"/>
+        <Method name="distanzaAltroPunto" returnType="float" visibility="public">
+          <Argument type="Punto" name="P"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Main">
+  <ClassDiagramComponents>
+    <Class name="Contocorrente" package="" visibility="public" xPosition="478.0" yPosition="30.0">
+      <Fields>
+        <Field name="iban" type="String" visibility="private"/>
+        <Field name="saldo" type="float" visibility="private"/>
+        <Field name="movimenti" type="ArrayList" visibility="private"/>
+        <Field name="n_movimenti" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="iban"/>
+          <Argument type="fload" name="saldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="prelievo" returnType="float" visibility="public">
+          <Argument type="float" name="prelievo"/>
+        </Method>
+        <Method name="versamento" returnType="float" visibility="public">
+          <Argument type="float" name="versamento"/>
+        </Method>
+        <Method name="getSaldo" returnType="int" visibility="public"/>
+        <Method name="printSaldo" returnType="void" visibility="public"/>
+        <Method name="printMovimenti" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movimento" package="" visibility="public" xPosition="667.0" yPosition="470.0">
+      <Fields>
+        <Field name="codice" type="int" visibility="private"/>
+        <Field name="data" type="long" visibility="private"/>
+        <Field name="importo" type="float" visibility="private"/>
+        <Field name="causale" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="codice"/>
+          <Argument type="long" name="data"/>
+          <Argument type="float" name="importo"/>
+          <Argument type="String" name="causale"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCodice" returnType="int" visibility="public"/>
+        <Method name="getData" returnType="String" visibility="public"/>
+        <Method name="getImporto" returnType="float" visibility="public"/>
+        <Method name="getCausale" returnType="String" visibility="public"/>
+        <Method name="setCodice" returnType="int" visibility="public">
+          <Argument type="int" name="codice"/>
+        </Method>
+        <Method name="setImporto" returnType="float" visibility="public">
+          <Argument type="float" name="importo"/>
+        </Method>
+        <Method name="setCausale" returnType="String" visibility="public">
+          <Argument type="String" name="causale"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Correntista" package="" visibility="public" xPosition="161.0" yPosition="470.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="ndg" type="String" visibility="private"/>
+        <Field name="conto" type="Contocorrente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nome"/>
+          <Argument type="String" name="ndg"/>
+          <Argument type="Contocorrente" name="conto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="prelievo" returnType="void" visibility="public">
+          <Argument type="float" name="importo"/>
+        </Method>
+        <Method name="versamento" returnType="voi" visibility="public">
+          <Argument type="float" name="importo"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="USE" source="Correntista" target="Contocorrente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Agg" source="Contocorrente" target="Movimento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

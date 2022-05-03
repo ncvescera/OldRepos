@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Java-DepositoDati">
+  <ClassDiagramComponents>
+    <Class name="Deposito" package="depositodati" visibility="public" xPosition="123.0" yPosition="87.0">
+      <Fields>
+        <Field name="data" type="int[]" visibility="private"/>
+        <Field name="lastRead" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="dim"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="scrivi" returnType="void" visibility="public">
+          <Argument type="int" name="pos"/>
+          <Argument type="int" name="n"/>
+        </Method>
+        <Method name="getSize" returnType="int" visibility="public"/>
+        <Method name="leggi" returnType="void" visibility="public" isSynchronized="true">
+          <Argument type="int" name="n"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Produttore" package="depositodati" visibility="public" xPosition="570.0" yPosition="87.0">
+      <Fields>
+        <Field name="deposito" type="Deposito" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Deposito" name="deposito"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lettore" package="depositodati" visibility="public" xPosition="570.0" yPosition="267.0">
+      <Fields>
+        <Field name="deposito" type="Deposito" visibility="private"/>
+        <Field name="toRead" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Deposito" name="deposito"/>
+          <Argument type="int" name="toRead"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TestDeposito" package="depositodati" visibility="public" xPosition="123.0" yPosition="318.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="deposito" source="depositodati.Produttore" target="depositodati.Deposito" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="deposito" source="depositodati.Lettore" target="depositodati.Deposito" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,0 +1,48 @@
+1 TCP Multiplexor
+2 compressnet Management Utility
+3 compressnet Compression Process
+7 Echo Protocol
+8 Bif Protocol
+9 Discard Protocol
+13 Daytime Protocol
+17 Quote of the Day
+19 Chargen Protocol
+20 FTP
+21 FTP
+22 SSH
+23 Telnet
+25 SMTP
+53 DNS
+67 BOOTP Server
+68 BOOTP Client
+69 TFTP
+70 Gopher
+79 finger Finger
+80 HTTP
+88 Kerberos Authenticating agent
+104 DICOM
+110 POP3
+113 ident
+119 NNTP
+123 NTP
+137 NetBIOS Name Service
+138 NetBIOS Datagram Service
+139 NetBIOS Session Service
+143 IMAP4
+161 SNMP
+162 SNMP
+389 LDAP
+411 Direct Connect
+443 HTTPS
+445 Microsoft-DS
+445 Microsoft-DS SMB
+465 SMTP
+514 SysLog
+563 NNTP
+587 e-mail
+591 FileMaker 6.0
+631 IPP / CUPS
+636 LDAP
+666 Doom
+993 IMAP4
+995 POP3
