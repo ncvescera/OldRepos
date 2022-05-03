@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ProPonte DB Master</title>
+
+    <!-- JQuery -->
+    <script src="./js/jquery.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+    <script src="./bootstrap/js/bootstrap.js"></script>
+
+    <!-- Chiamate AJAX -->
+    <script src="./js/ajax.js"></script>
+
+    <!-- AngularJS -->
+    <script src="./js/angular.js"></script>
+
+    <!-- Carica la navbar e la pagina soci.html quando la pagina è pronta -->
+    <script>
+      $(document).ready(function(){
+        $("#navbar").load("navbar.html");
+        $('#body').load("soci.html");
+      });
+    </script>
+
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    <!--<script>$("#navbar").load("navbar.html");</script>-->
+    <br>
+    <!-- Corpo -->
+    <div class="container-fluid" ng-app="myApp" ng-controller="customersCtrl">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+          <h1 style="display: inline;">Tabella Soci</h1>
+        </div>
+        <div class="col-md-2">
+          <select class="form-control" ng-model="filtro">
+            <option>nome</option>
+            <option>cognome</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Cerca" ng-model="cerca">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <table class="table table-responsive">
+            <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Cognome</th>
+            </tr>
+            <tr ng-repeat="x in names | orderBy: filtro | filter: cerca">
+              <td ng-if="$odd">{{ x.id }}</td>
+              <td ng-if="$even" class="active">{{ x.id }}</td>
+
+              <td  ng-if="$odd">{{ x.nome }}</td>
+              <td  ng-if="$even" class="active">{{ x.nome }}</td>
+
+              <td ng-if="$odd">{{ x.cognome }}</td>
+              <td ng-if="$even" class="active">{{ x.cognome }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    var app = angular.module('myApp', []);
+     app.controller('customersCtrl', function($scope, $http) {
+        $http.get("./php/getSoci.php").then(function (response) {
+            $scope.names = response.data;
+        });
+    });
+    </script>
+
+  </body>
+</html>

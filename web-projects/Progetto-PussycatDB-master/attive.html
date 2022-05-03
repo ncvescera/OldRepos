@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Ajax -->
+    <script src="./js/ajax/loadTableAttive.js"></script>
+    <script src="./js/ajax/terminaAttive.js"></script> <!-- termina una conversazione attiva -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Carica la tabella attive dopo il caricamento della pagina -->
+    <script>
+      $(window).load(loadTableAttive());
+    </script>
+
+    <meta charset="utf-8">
+    <title>Chats</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h1>PussyCatDB</h1>
+        <p>Elenco di tutte le ragazze con cui è stata avviata una conversazione</p>
+      </div>
+    </div>
+
+    <!-- NavBar -->
+    <div class="row">
+      <!-- parte sinistra -->
+      <div class="col-md-4 col-md-offset-2">
+        <ul class="nav nav-tabs">
+          <li role="presentation"><a href="./index.html"><span class="glyphicon glyphicon-home"></span></a></li>
+          <li role="presentation" class="active"><a href="#">Attive</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div id="result"></div>
+        <div id="container"></div>
+      </div>
+    </div>
+
+    <!-- Modal GoodEnd-->
+    <div class="modal fade" id="goodendModal" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Conversazione andata a buon fine</h4>
+          </div>
+          <div class="modal-body">
+            <label>Voto</label> <input type="text" id="voto" class="form-control"><br>
+            <label>Commento</label> <textarea class="form-control" row="3"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button class="btn btn-primary" onclick="asd();" data-dismiss="modal">Aggiungi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

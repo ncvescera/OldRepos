@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+        
+        
+        <script src="./js/getUser.js"></script>
+        <script src="./js/addLibro.js"></script>
+        <script src="./js/cerca.js"></script>
+        <script src="./js/select.js"></script>
+        <script src="./js/email.js"></script>
+        <script>
+            $(document).ready(function(){
+                getUSer();
+                select();
+            });
+        </script>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>Home <br><small>Benvenuto <span id="user"></span></small></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2>Aggiungi libro</h2>
+                    <div id="addresult"></div>
+                    <div>
+                        <div class="form-group">
+                            <label>Autore</label>
+                            <input type="text" id="autore" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Casa Editrice</label>
+                            <input type="text" id="editrice" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Titolo</label>
+                            <input type="text" id="titolo" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="number" id="id" class="form-control" required>
+                        </div>
+                        <button class="btn btn-default" onclick="addLibro();select()">Aggiungi</button>
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2>Cerca per Autore</h2>
+                    <div class="form-inline">
+                        <input type="text" id="cerca" class="form-control" required> <button class="btn btn-default" onclick="cerca()">Cerca</button>
+                    </div>
+                    <br>
+                    <div id="cercaTabella"></div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2>Select</h2>
+                    <select id="select" class="form-control" onchange="printSelectTable()"></select>
+                    <br>
+                    <div id="secectTable"></div>
+                </div>
+            </div>
+            
+            <hr>
+            
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h2>Email</h2>
+                    <span id="emailStato"></span>
+                    <div class="form-inline">
+                        <input type="number" id="email" class="form-control" placeholder="Codice libro"> <button class="btn btn-default" onclick="email()">Invia</button>
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+            
+        </div>
+    </body>
+</html>

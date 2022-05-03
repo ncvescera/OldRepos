@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>I NUMERI CHE FANNO COSE</title>
+	<!-- Import di Jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<script>
+		function send(){
+			var value = $('#number').val();
+			value = value.replace(",","."); //replace della virgola col punto
+
+			var xhttp = new XMLHttpRequest();
+    	xhttp.onreadystatechange = function() {
+	      if (xhttp.readyState == 4 && xhttp.status == 200) {
+	        document.getElementById("result").innerHTML = xhttp.responseText;
+	      }
+    	};
+    	xhttp.open("GET", "analyze.php?number="+value, true);
+			xhttp.send();
+		}
+	</script>
+
+</head>
+<body>
+	<h1>Il numero che non ti aspetti</h1>
+	<div id="no-form">
+		<label for="number">Numero:</label>
+		<input type="text" id="number">
+		<button type="submit" onclick="send()">Analizza</button>
+		<br><br>
+		<div id="result"></div>
+	</div>
+
+	<br><br>
+
+	<div id="with-form">
+		<form action="analyze.php" method="GET">
+			<label for="number">Numero:</label>
+			<input type="text" name="number" id="number">
+			<button type="submit">Analizza</button>
+		</form>
+	</div>
+<body>
+</html>

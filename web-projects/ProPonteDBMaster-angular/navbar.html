@@ -1,0 +1,39 @@
+<script>
+  $(document).ready(function(){
+    countM();
+    countF();
+  });
+</script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ProPonte DB Master</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="#" onclick="$('#body').load('soci.html');"><span class="glyphicon glyphicon-user"></span> Associati</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list-alt"></span> Query <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="$('#body').load('sociM.html');">Maschi <span id="M" class="badge"></span></a></li>
+            <li><a href="#" onclick="$('#body').load('sociF.html');">Femmine <span id="F" class="badge"></span></a></li>
+            <li><a href="#">Page 1-3</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><button class="btn btn-default navbar-btn">aggiungi socio</button></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Per allineare i badget maschie e femmine a destra usare <span style="display: inline-block; width: 50%;">Maschi</span>
+Questo funziona solo su desktop, sui tablet e cellulari li distanzia troppo. Guardare http://stackoverflow.com/questions/6794683/is-there-a-way-to-make-desktop-only-css-rules#6794713 -->

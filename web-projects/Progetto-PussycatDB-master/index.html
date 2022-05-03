@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" type="image/png" href="./favico.png">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Ajax -->
+    <script src="./js/ajax/loadTableRagazze.js"></script> <!-- carica la tabella con tutte le ragazze nella pagina -->
+    <script src="./js/ajax/addToAttive.js"></script> <!-- aggiunge una ragazza alla tabella attive -->
+    <script src="./js/ajax/aggiungiRagazza.js"></script> <!-- aggiunge una ragazza alla tabella ragazze -->
+    <script src="./js/ajax/editRagazza.js"></script> <!-- modifica un campo della tabella ragazze -->
+    <script src="./js/ajax/cercaRagazza.js"></script> <!-- cerca una ragazza in base al valore dell'input cerca -->
+    <script src="./js/ajax/changeHot.js"></script> <!-- cambia il valore del campo hot -->
+
+    <!-- Carica la tabella delle ragazze dopo che la pagina è pronta -->
+    <script>
+      $(window).load(loadTableRagazze());
+    </script>
+
+    <script src="./js/rmbPress.js"></script> <!-- evento click tasto destro -->
+    <script src="./js/escPress.js"></script> <!-- evento press esc -->
+    <script src="./js/enterPress.js"></script> <!-- evento press enter -->
+
+    <meta charset="utf-8">
+    <title>PussyCatDB</title>
+  </head>
+  <body>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h1>PussyCatDB</h1>
+          <p>Elenco di tutte le ragazze presenti nel database</p>
+        </div>
+      </div>
+
+      <!-- NavBar -->
+      <div class="row">
+        <!-- parte sinistra -->
+        <div class="col-md-4 col-md-offset-2 col-sm-6 col-sm-offset-0">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li role="presentation"><a href="attive.html">Attive</a></li>
+          </ul>
+        </div>
+        <!-- parte destra -->
+        <div class="col-md-4 col-sm-6">
+            <table style="width: 100%">
+              <tr class="text-center">
+                <td>
+                  <button class="btn btn-default" data-toggle="modal" data-target="#aggiungiModal">aggiungi</button>
+                </td>
+                <td style="width: 60%;">
+                  <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span><input class="form-control" type="text" style="width: 100%; display: inline;" placeholder="Cerca" id="cerca" onkeydown="cercaRagazza()" onkeyup="cercaRagazza()">
+                  </div>
+                </td>
+              </tr>
+          </table>
+        </div>
+      </div>
+      <!-- +++++++++++++ -->
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div id="queryResult"></div>
+          <div class="table-responsive" id="container" oncontextmenu="return false;"></div> <!-- niente menu tasto destro -->
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="aggiungiModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Aggiungi una ragazza</h4>
+            </div>
+            <div class="modal-body">
+              <label>Nome</label> <input type="text" id="nome" class="form-control"><br>
+              <label>Cognome</label> <input type="text" id="cognome" class="form-control"><br>
+              <label>Facebook</label> <input type="text" id="fb" class="form-control"><br>
+              <label>Voto</label> <input type="text" id="voto" class="form-control"><br>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button class="btn btn-primary" onclick="aggiungiRagazza();" data-dismiss="modal">Aggiungi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </body>
+</html>
