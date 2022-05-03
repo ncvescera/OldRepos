@@ -1,0 +1,11 @@
+"make" -f nbproject/Makefile-Debug.mk QMAKE= SUBPROJECTS= .build-conf
+make[1]: ingresso nella directory "/cygdrive/c/Users/trotta/Documents/githubstudenti/3ainf1415/frtrotta/Ese003-FunzioniSuArray"
+"make"  -f nbproject/Makefile-Debug.mk dist/Debug/Cygwin-Windows/ese003-funzionisuarray.exe
+make[2]: ingresso nella directory "/cygdrive/c/Users/trotta/Documents/githubstudenti/3ainf1415/frtrotta/Ese003-FunzioniSuArray"
+mkdir -p build/Debug/Cygwin-Windows
+rm -f "build/Debug/Cygwin-Windows/main.o.d"
+gcc    -c -g -MMD -MP -MF "build/Debug/Cygwin-Windows/main.o.d" -o build/Debug/Cygwin-Windows/main.o main.c
+mkdir -p dist/Debug/Cygwin-Windows
+gcc     -o dist/Debug/Cygwin-Windows/ese003-funzionisuarray build/Debug/Cygwin-Windows/main.o 
+make[2]: uscita dalla directory "/cygdrive/c/Users/trotta/Documents/githubstudenti/3ainf1415/frtrotta/Ese003-FunzioniSuArray"
+make[1]: uscita dalla directory "/cygdrive/c/Users/trotta/Documents/githubstudenti/3ainf1415/frtrotta/Ese003-FunzioniSuArray"

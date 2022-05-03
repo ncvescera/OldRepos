@@ -1,0 +1,1 @@
+# Ese006-SoluzioniEquazioneSecondoGrado
